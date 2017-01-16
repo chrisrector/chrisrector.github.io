@@ -125,11 +125,7 @@ $(document).ready(function () {
 <h2>Overview</h2>
 <p>This is an R Markdown document created for the week 2 assignement for the Johns Hopkins Coursera class “Developing Data Products”.</p>
 <p>This page shows the Halifax Citadel in Halifax, Nova Scotia (Canada). It has a custom marker, with a pop-up showing a link to the related Wikipedia page.</p>
-<pre class="r"><code>#44.6468202,-63.5836364
-#44.6472159,-63.5796309
-#https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Halifax_Flag.svg/150px-Halifax_Flag.svg.png
-
-hfxIcon &lt;- makeIcon(
+<pre class="r"><code>hfxIcon &lt;- makeIcon(
   iconUrl = &quot;https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Halifax_Flag.svg/150px-Halifax_Flag.svg.png&quot;,
   iconWidth = 31*215/230, iconHeight = 31,
   iconAnchorX = 31*215/230/2, iconAnchorY = 16
@@ -148,8 +144,8 @@ hfxlatlong %&gt;%
   leaflet() %&gt;%
   addTiles() %&gt;%
   addMarkers(icon = hfxIcon, popup = hfxsites)</code></pre>
-<p><div id="htmlwidget-6594a95e63b574659cbe" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6594a95e63b574659cbe">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap\u003c/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA\u003c/a>"}]},{"method":"addMarkers","args":[44.6472159,-63.5796309,{"iconUrl":{"data":"https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Halifax_Flag.svg/150px-Halifax_Flag.svg.png","index":0},"iconWidth":28.9782608695652,"iconHeight":31,"iconAnchorX":14.4891304347826,"iconAnchorY":16},null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"<a href='https://en.wikipedia.org/wiki/Citadel_Hill_(Fort_George)'>Halifax Citadel\u003c/a>",null,null]}],"limits":{"lat":[44.6472159,44.6472159],"lng":[-63.5796309,-63.5796309]}},"evals":[],"jsHooks":[]}</script></p>
+<p><div id="htmlwidget-2a40e3b019f5260c9aad" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2a40e3b019f5260c9aad">{"x":{"calls":[{"method":"addTiles","args":["http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap\u003c/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA\u003c/a>"}]},{"method":"addMarkers","args":[44.6472159,-63.5796309,{"iconUrl":{"data":"https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Halifax_Flag.svg/150px-Halifax_Flag.svg.png","index":0},"iconWidth":28.9782608695652,"iconHeight":31,"iconAnchorX":14.4891304347826,"iconAnchorY":16},null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"<a href='https://en.wikipedia.org/wiki/Citadel_Hill_(Fort_George)'>Halifax Citadel\u003c/a>",null,null]}],"limits":{"lat":[44.6472159,44.6472159],"lng":[-63.5796309,-63.5796309]}},"evals":[],"jsHooks":[]}</script></p>
 </div>
 
 
