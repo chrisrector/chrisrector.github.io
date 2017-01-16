@@ -1,0 +1,57 @@
+---
+title: "Leaflet example"
+author: "Chris Rector"
+date: "January 15, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+
+This is an R Markdown document created for the week 2 assignement for the Johns Hopkins Coursera class "Developing Data Products".
+
+This page shows the Halifax Citadel in Halifax, Nova Scotia (Canada). It has a custom marker, with a pop-up showing a link to the related Wikipedia page.
+
+
+```{r leafsetup, echo=FALSE, message=FALSE, warning=FALSE}
+library(leaflet)
+
+
+my_map <- leaflet() %>% 
+  addTiles()
+#my_map
+
+
+
+
+```
+
+```{r leaflet, echo=TRUE, message=FALSE, warning=FALSE}
+
+
+hfxIcon <- makeIcon(
+  iconUrl = "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Halifax_Flag.svg/150px-Halifax_Flag.svg.png",
+  iconWidth = 31*215/230, iconHeight = 31,
+  iconAnchorX = 31*215/230/2, iconAnchorY = 16
+)
+
+hfxsites <- c(
+  "<a href='https://en.wikipedia.org/wiki/Citadel_Hill_(Fort_George)'>Halifax Citadel</a>"
+)
+
+hfxlatlong <- data.frame(
+lat = c(44.6472159),
+lng = c(-63.5796309))
+
+
+hfxlatlong %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(icon = hfxIcon, popup = hfxsites)
+
+```
+
+
