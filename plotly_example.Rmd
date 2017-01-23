@@ -1,0 +1,49 @@
+---
+title: "Plotly Example - Developing Data Products"
+author: "Chris Rector"
+date: "January 22, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+## Overview
+
+This document was created for the week 3 course project for the Johns Hopkins Developing Data Products course on Coursera. It demonstrates the use of the Plotly library and the sharing of data visualizations through HTML.
+
+Here we plot the sum of home sales per month of the year in the province of Nova Scotia (Canada), using data from the DataZone open data portal: https://www.thedatazone.ca/Assessment/Parcel-Sales-History/6a95-ppg4.
+
+
+```{r dataload, echo=TRUE, message=FALSE, warning=FALSE}
+library(plotly)
+library(ggplot2)
+library(scales)
+
+d <- read.table("c:/tmp/Parcel_Sales_History.tsv", sep="\t", header=TRUE, quote="", comment.char="")
+datetime <- strptime(factor(d$Sale.Date),  format = "%B %d %Y")
+d <- cbind(d, datetime)
+year <- as.numeric(format(d$datetime, "%Y"))
+d <- cbind(d, year)
+month_num <- as.numeric(format(d$datetime, "%m"))
+d <- cbind(d, month_num)
+
+d$price <- as.numeric(d$Sale.Price)
+
+dt <- aggregate(price ~ month_num, sum, data=d)
+```
+
+## Plotly
+
+Here we use plotly to plot the sum of home sales in each month (1=January).
+
+```{r viz, echo=TRUE, message=FALSE, warning=FALSE}
+
+plot_ly(x=dt$month_num, y=dt$price, type="scatter", mode="lines")
+
+
+```
+
+
