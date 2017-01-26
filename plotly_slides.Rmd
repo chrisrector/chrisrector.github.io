@@ -1,0 +1,50 @@
+---
+title: "Plotly Presentation"
+author: "Chris Rector"
+date: "January 25, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+This document was created for the week 3 course project for the Johns Hopkins Developing Data Products course on Coursera. It demonstrates the use of the Plotly library and the sharing of data visualizations through HTML.
+
+
+```{r dataload, echo=FALSE, message=FALSE, warning=FALSE}
+library(plotly)
+library(ggplot2)
+library(scales)
+
+d <- read.table("c:/tmp/Parcel_Sales_History.tsv", sep="\t", header=TRUE, quote="", comment.char="")
+datetime <- strptime(factor(d$Sale.Date),  format = "%B %d %Y")
+d <- cbind(d, datetime)
+year <- as.numeric(format(d$datetime, "%Y"))
+d <- cbind(d, year)
+month_num <- as.numeric(format(d$datetime, "%m"))
+d <- cbind(d, month_num)
+
+d$price <- as.numeric(d$Sale.Price)
+
+dt <- aggregate(price ~ month_num, sum, data=d)
+```
+
+## Data Used in This Assignment
+
+- We plot the sum of home sales per month of the year in the province of Nova Scotia (Canada)
+- We used data from the DataZone open data portal: https://www.thedatazone.ca/Assessment/Parcel-Sales-History/6a95-ppg4.
+- the plot shows total home sales in each month (1=January).
+
+
+## Plotly Plot
+
+
+```{r viz, echo=TRUE, message=FALSE, warning=FALSE}
+
+plot_ly(x=dt$month_num, y=dt$price, type="scatter", mode="lines")
+
+```
+
