@@ -7,7 +7,7 @@ autosize: true
 Overview
 ========================================================
 
-As part of the Johns Hopkins Developing Data Products course, offered via Coursera, we've developed a Shiny App to allow you to visualize university professor salary data in terms of:
+As part of the Johns Hopkins Developing Data Products course, offered via Coursera, we've developed a Shiny App to allow you to calculate and plot average university professor salary data in terms of:
 
 - the sex of the professor
 - the number of years of service worked by the professor
@@ -50,5 +50,7 @@ Please find the app at the following url:
 
 https://rector.shinyapps.io/ShinyApp/
 
-We hope you enjoy it.
+We hope you enjoy it. Code for the app can be found at:
+
+https://github.com/chrisrector/chrisrector.github.io
 

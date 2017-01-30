@@ -29,7 +29,7 @@ shinyServer(function(input, output) {
       geom_bar(position="dodge", stat="identity", aes(fill = rank)) + 
       scale_y_continuous(labels=comma) + 
       coord_flip() +
-      labs(title = "Professor Salary")  
+      labs(title = "Average Professor Salary")  
     
     # generate bins based on input$bins from ui.Rair
     #x    <- faithful[, 2] 
