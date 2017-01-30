@@ -18,7 +18,7 @@ The data used by the Shiny App comes from the Salaries data set, which can be fo
 
 ```{r}
 library(car)
-str(Salaries)
+names(Salaries)
 ```
 
 Overview of Professor Data
@@ -40,16 +40,6 @@ Features of Our Shiny App
 ========================================================
 
 In addition to the bar plot shown in the previous slide, our app provides a line plot of average professor salaries at each year of service. Each plot is available in its own separate tab.
-
-```{r, echo=FALSE}
-st <- aggregate(salary ~ sex+yrs.service, mean, data=Salaries)
-ggplot(st, aes(yrs.service,salary, colour=sex)) +
-      geom_line() +
-      scale_y_continuous(labels=comma) +
-      labs(title = "Average Salary by Number of Years Service",
-           x = "Years Service")  
-```
-
 
 The two plots are dynamically updated based on the years of service slide and sex radio buttons shown on the left side of the application.
 
