@@ -1,0 +1,64 @@
+Professor Salary Shiny App
+========================================================
+author: Chris Rector
+date: January 29, 2017
+autosize: true
+
+Overview
+========================================================
+
+As part of the Johns Hopkins Developing Data Products course, offered via Coursera, we've developed a Shiny App to allow you to visualize university professor salary data in terms of:
+
+- the sex of the professor
+- the number of years of service worked by the professor
+
+The Data
+========================================================
+The data used by the Shiny App comes from the Salaries data set, which can be found in the "car" library.
+
+```{r}
+library(car)
+str(Salaries)
+```
+
+Overview of Professor Data
+========================================================
+
+The following plot shows the average salaries for the entire data set, by sex and rank.
+
+```{r, echo=FALSE}
+library(ggplot2)
+library(scales)
+ggplot(Salaries, aes(sex,salary)) + 
+      geom_bar(position="dodge", stat="identity", aes(fill = rank)) + 
+      scale_y_continuous(labels=comma) + 
+      coord_flip() +
+      labs(title = "Professor Salary")
+```
+
+Features of Our Shiny App
+========================================================
+
+In addition to the bar plot shown in the previous slide, our app provides a line plot of average professor salaries at each year of service. Each plot is available in its own separate tab.
+
+```{r, echo=FALSE}
+st <- aggregate(salary ~ sex+yrs.service, mean, data=Salaries)
+ggplot(st, aes(yrs.service,salary, colour=sex)) +
+      geom_line() +
+      scale_y_continuous(labels=comma) +
+      labs(title = "Average Salary by Number of Years Service",
+           x = "Years Service")  
+```
+
+
+The two plots are dynamically updated based on the years of service slide and sex radio buttons shown on the left side of the application.
+
+Where to Find the App
+========================================================
+
+Please find the app at the following url:
+
+https://rector.shinyapps.io/ShinyApp/
+
+We hope you enjoy it.
+

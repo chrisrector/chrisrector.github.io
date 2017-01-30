@@ -19,7 +19,7 @@ library(plotly)
 library(ggplot2)
 library(scales)
 
-d <- read.table("c:/tmp/Parcel_Sales_History.tsv", sep="\t", header=TRUE, quote="", comment.char="")
+d <- read.table("c:/tmp/halifax.tsv", sep="\t", header=TRUE, quote="", comment.char="")
 datetime <- strptime(factor(d$Sale.Date),  format = "%B %d %Y")
 d <- cbind(d, datetime)
 year <- as.numeric(format(d$datetime, "%Y"))
